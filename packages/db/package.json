@@ -1,0 +1,40 @@
+{
+  "name": "@felops/db",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "./src/client.ts",
+  "types": "./src/client.ts",
+  "exports": {
+    ".": "./src/client.ts",
+    "./schema": "./src/schema/index.ts",
+    "./schema/*": "./src/schema/*.ts",
+    "./repositories/agents": "./src/repositories/agents.ts",
+    "./repositories/knowledge": "./src/repositories/knowledge.ts",
+    "./repositories/chunks": "./src/repositories/chunks.ts",
+    "./test/helpers": "./test/helpers.ts",
+    "./test/fixtures": "./test/fixtures.ts"
+  },
+  "scripts": {
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "tsx src/migrate.ts",
+    "db:migrate:test": "DATABASE_URL=postgres://felops:felops@localhost:5433/felops_test tsx src/migrate.ts",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "lint": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@felops/config": "workspace:*",
+    "@felops/ai": "workspace:*",
+    "drizzle-orm": "^0.44.5",
+    "postgres": "^3.4.7"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.0",
+    "dotenv": "^16.4.7",
+    "drizzle-kit": "^0.31.4",
+    "tsx": "^4.20.3",
+    "typescript": "^5.9.2",
+    "vitest": "^3.2.4"
+  }
+}

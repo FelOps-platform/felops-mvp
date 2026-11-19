@@ -1,0 +1,16 @@
+node_modules
+**/node_modules
+.next
+**/.next
+.turbo
+dist
+**/dist
+.git
+.env
+.env.local
+.env.*.local
+coverage
+playwright-report
+test-results
+apps/web/public/widget.js
+*.tsbuildinfo

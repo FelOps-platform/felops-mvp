@@ -1,0 +1,56 @@
+{
+  "name": "@felops/core",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts",
+    "./errors": "./src/errors.ts",
+    "./workspaces": "./src/workspaces/service.ts",
+    "./agents": "./src/agents/service.ts",
+    "./agents/types": "./src/agents/types.ts",
+    "./knowledge": "./src/knowledge/service.ts",
+    "./knowledge/url-safety": "./src/knowledge/url-safety.ts",
+    "./knowledge/queue": "./src/knowledge/queue.ts",
+    "./chat": "./src/chat/service.ts",
+    "./conversations": "./src/conversations/service.ts",
+    "./actions": "./src/actions/service.ts",
+    "./actions/state": "./src/actions/state.ts",
+    "./actions/crypto": "./src/actions/crypto.ts",
+    "./actions/executor": "./src/actions/executor.ts",
+    "./approvals": "./src/approvals/service.ts",
+    "./audit": "./src/audit/service.ts",
+    "./usage": "./src/usage/service.ts",
+    "./members": "./src/members/service.ts",
+    "./rate-limit": "./src/rate-limit.ts",
+    "./queue": "./src/queue.ts",
+    "./email/mailer": "./src/email/mailer.ts",
+    "./storage/s3": "./src/storage/s3.ts",
+    "./test/fixtures": "./test/fixtures.ts"
+  },
+  "scripts": {
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "lint": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@felops/ai": "workspace:*",
+    "@felops/config": "workspace:*",
+    "@felops/db": "workspace:*",
+    "@aws-sdk/client-s3": "^3.888.0",
+    "@aws-sdk/s3-request-presigner": "^3.888.0",
+    "ai": "^5.0.60",
+    "ajv": "^8.17.1",
+    "bullmq": "^5.58.0",
+    "drizzle-orm": "^0.44.5",
+    "ioredis": "^5.8.1",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.0",
+    "typescript": "^5.9.2",
+    "vitest": "^3.2.4"
+  }
+}
