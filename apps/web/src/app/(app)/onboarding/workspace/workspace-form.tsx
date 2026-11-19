@@ -6,15 +6,20 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/field'
 
+const inputClass =
+  'h-11 border-white/15 bg-white/[0.03] text-white placeholder:text-white/30 focus:border-white/40 focus:ring-white/10'
+
 export function WorkspaceForm({ action }: { action: (formData: FormData) => void }) {
   const [name, setName] = useState('')
   const [slug, setSlug] = useState('')
   const [touched, setTouched] = useState(false)
 
   return (
-    <form action={action} className="space-y-4">
+    <form action={action} className="space-y-5">
       <div>
-        <Label htmlFor="name">Business name</Label>
+        <Label htmlFor="name" className="text-[12px] font-medium text-white/75">
+          Business name
+        </Label>
         <Input
           id="name"
           name="name"
@@ -25,12 +30,15 @@ export function WorkspaceForm({ action }: { action: (formData: FormData) => void
             if (!touched) setSlug(slugify(event.target.value))
           }}
           placeholder="Cairo Threads"
+          className={inputClass}
         />
       </div>
       <div>
-        <Label htmlFor="slug">Workspace URL</Label>
+        <Label htmlFor="slug" className="text-[12px] font-medium text-white/75">
+          Workspace URL
+        </Label>
         <div className="flex items-center gap-2">
-          <span className="text-sm text-neutral-500">/w/</span>
+          <span className="text-sm text-white/40">/w/</span>
           <Input
             id="slug"
             name="slug"
@@ -41,10 +49,11 @@ export function WorkspaceForm({ action }: { action: (formData: FormData) => void
               setSlug(slugify(event.target.value))
             }}
             placeholder="cairo-threads"
+            className={inputClass}
           />
         </div>
       </div>
-      <Button type="submit" className="w-full">
+      <Button type="submit" size="lg" className="w-full">
         Create workspace
       </Button>
     </form>

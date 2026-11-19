@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/button'
 import { Card, CardBody } from '@/components/ui/card'
 import { Table, TBody, TD, TH, THead, TR } from '@/components/ui/table'
 import { AgentStatusBadge } from '@/components/agents/agent-status-badge'
+import { PageHeader } from '@/components/app-shell/page-header'
 
 export default async function AgentsPage({
   params,
@@ -30,18 +31,15 @@ export default async function AgentsPage({
 
   return (
     <div className="space-y-6">
-      <div className="flex flex-wrap items-end justify-between gap-4">
-        <div>
-          <h1 className="text-2xl font-semibold tracking-tight text-neutral-900">Agents</h1>
-          <p className="mt-1 text-sm text-neutral-600">
-            One agent per job. Activate only after it has ready knowledge.
-          </p>
-        </div>
-        <Link href={`/w/${workspace.slug}/agents/new`}>
-          <Button>New agent</Button>
-        </Link>
-      </div>
-
+      <PageHeader
+        title="Agents"
+        description="One agent per job. Activate only after it has ready knowledge."
+        actions={
+          <Link href={`/w/${workspace.slug}/agents/new`}>
+            <Button>New agent</Button>
+          </Link>
+        }
+      />
       <Card>
         <CardBody className="p-0">
           {agents.length === 0 ? (

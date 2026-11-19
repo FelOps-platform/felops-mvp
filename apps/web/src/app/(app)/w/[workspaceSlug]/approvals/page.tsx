@@ -1,7 +1,8 @@
 import { listActionRuns, listPendingRuns } from '@felops/core/approvals'
 import { requireWorkspaceMember } from '@/lib/workspace'
-import { Card, CardBody, CardHeader, CardTitle } from '@/components/ui/card'
+import { Card, CardBody } from '@/components/ui/card'
 import { ApprovalDetail } from '@/components/actions/approval-detail'
+import { PageHeader } from '@/components/app-shell/page-header'
 
 export default async function ApprovalsPage({
   params,
@@ -23,21 +24,19 @@ export default async function ApprovalsPage({
 
   return (
     <div className="space-y-8">
-      <div>
-        <h1 className="text-2xl font-semibold tracking-tight text-neutral-900">Approvals</h1>
-        <p className="mt-1 text-sm text-neutral-600">
-          Sensitive actions pause here. Only owners and admins can approve or reject.
-        </p>
-      </div>
+      <PageHeader
+        title="Approvals"
+        description="Sensitive actions pause here. Only owners and admins can approve or reject."
+      />
 
       {query.tested ? (
-        <p className="rounded-lg border border-emerald-200 bg-emerald-50 px-3 py-2 text-sm text-emerald-800">
+        <p className="rounded-lg border border-emerald-500/20 bg-emerald-500/10 px-3 py-2 text-sm text-emerald-200">
           Test run created. Approve it below to execute exactly once.
         </p>
       ) : null}
 
       <section className="space-y-3">
-        <h2 className="text-xs font-semibold uppercase tracking-wide text-neutral-500">
+        <h2 className="text-[10px] font-semibold uppercase tracking-[0.18em] text-white/35">
           Pending · {pending.length}
         </h2>
         {pending.length === 0 ? (
@@ -61,7 +60,7 @@ export default async function ApprovalsPage({
       </section>
 
       <section className="space-y-3">
-        <h2 className="text-xs font-semibold uppercase tracking-wide text-neutral-500">
+        <h2 className="text-[10px] font-semibold uppercase tracking-[0.18em] text-white/35">
           History
         </h2>
         {history.length === 0 ? (

@@ -9,15 +9,16 @@ export function SignOutButton() {
   return (
     <button
       type="button"
+      title="Sign out"
+      aria-label="Sign out"
       onClick={async () => {
         await authClient.signOut()
         router.push('/')
         router.refresh()
       }}
-      className="flex items-center gap-1.5 rounded-lg px-2.5 py-2 text-xs font-medium text-neutral-500 hover:bg-neutral-100 hover:text-neutral-900"
+      className="flex h-8 w-8 items-center justify-center rounded-lg text-white/40 transition-colors hover:bg-white/[0.08] hover:text-white"
     >
-      <LogOut className="h-3.5 w-3.5" />
-      Sign out
+      <LogOut className="h-4 w-4" />
     </button>
   )
 }

@@ -19,6 +19,14 @@ export function formatRelativeTime(date: Date | string | null | undefined): stri
   return value.toLocaleDateString()
 }
 
+export function formatEventType(type: string): string {
+  return type
+    .split('.')
+    .map((part) => part.replace(/_/g, ' '))
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+    .join(' · ')
+}
+
 export function initials(value: string): string {
   return value
     .split(/\s+/)

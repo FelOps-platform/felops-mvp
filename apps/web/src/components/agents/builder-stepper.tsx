@@ -26,16 +26,16 @@ export function BuilderStepper({
         const done = steps.findIndex((item) => item.key === active) > index
         return (
           <li key={step.key} className="flex items-center gap-2">
-            {index > 0 ? <span className="text-neutral-300">→</span> : null}
+            {index > 0 ? <span className="text-white/20">→</span> : null}
             <Link
               href={href}
               className={cn(
-                'rounded-md px-2 py-1',
+                'rounded-md px-2 py-1 transition-colors',
                 active === step.key
-                  ? 'bg-neutral-900 text-white'
+                  ? 'bg-[#495CCA] text-white'
                   : done
-                    ? 'text-emerald-700'
-                    : 'text-neutral-500 hover:bg-neutral-100',
+                    ? 'text-emerald-400'
+                    : 'text-white/45 hover:bg-white/[0.06] hover:text-white',
               )}
             >
               {step.label}

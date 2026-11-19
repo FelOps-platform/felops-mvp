@@ -62,19 +62,19 @@ export default async function ActionsPage({
   return (
     <div className="space-y-6">
       {query.error ? (
-        <p className="rounded-lg border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-700">
+        <p className="rounded-lg border border-red-500/20 bg-red-500/10 px-3 py-2 text-sm text-red-200">
           {query.error === 'json'
             ? 'The parameters or headers are not valid JSON.'
             : 'Check the action URL and fields. Private addresses are blocked.'}
         </p>
       ) : null}
       {query.created ? (
-        <p className="rounded-lg border border-emerald-200 bg-emerald-50 px-3 py-2 text-sm text-emerald-800">
+        <p className="rounded-lg border border-emerald-500/20 bg-emerald-500/10 px-3 py-2 text-sm text-emerald-200">
           Action created.
         </p>
       ) : null}
       {query.tested ? (
-        <p className="rounded-lg border border-emerald-200 bg-emerald-50 px-3 py-2 text-sm text-emerald-800">
+        <p className="rounded-lg border border-emerald-500/20 bg-emerald-500/10 px-3 py-2 text-sm text-emerald-200">
           Test run created. Review it in Approvals.
         </p>
       ) : null}

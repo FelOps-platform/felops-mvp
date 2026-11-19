@@ -1,8 +1,6 @@
 import { listUserWorkspaces } from '@felops/core/workspaces'
 import { requireWorkspaceMember } from '@/lib/workspace'
-import { WorkspaceNav } from '@/components/workspace-nav'
-import { WorkspaceSwitcher } from '@/components/workspace-switcher'
-import { SignOutButton } from '@/components/sign-out-button'
+import { AppSidebar } from '@/components/app-shell/sidebar'
 
 export default async function WorkspaceLayout({
   children,
@@ -16,30 +14,18 @@ export default async function WorkspaceLayout({
   const workspaces = await listUserWorkspaces(user.id)
 
   return (
-    <div className="min-h-screen">
-      <header className="border-b border-neutral-200 bg-white">
-        <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-3 px-4 py-3 sm:px-6">
-          <div className="flex items-center gap-2 text-sm font-bold tracking-wide text-neutral-900">
-            <span className="h-2 w-2 rounded-full bg-[#FA6400]" />
-            FELOPS
-          </div>
-          <span className="hidden text-neutral-300 sm:inline">/</span>
-          <WorkspaceSwitcher current={workspace} workspaces={workspaces} />
-          <div className="ml-auto flex items-center gap-3">
-            <div className="hidden text-right sm:block">
-              <p className="text-xs font-medium text-neutral-900">{user.name}</p>
-              <p className="text-[11px] text-neutral-500">
-                {role} · {workspace.plan}
-              </p>
-            </div>
-            <SignOutButton />
-          </div>
+    <div className="min-h-screen bg-[#08080A] text-white">
+      <AppSidebar
+        workspace={workspace}
+        workspaces={workspaces}
+        user={{ name: user.name, email: user.email }}
+        role={role}
+      />
+      <main className="min-h-screen pt-16 lg:pl-[264px]">
+        <div className="mx-auto w-full max-w-[1440px] px-5 py-7 sm:px-8 lg:px-10 lg:py-10">
+          {children}
         </div>
-        <div className="mx-auto max-w-7xl px-4 pb-2 sm:px-6">
-          <WorkspaceNav slug={workspace.slug} />
-        </div>
-      </header>
-      <main className="mx-auto max-w-7xl px-4 py-8 sm:px-6">{children}</main>
+      </main>
     </div>
   )
 }

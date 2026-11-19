@@ -11,6 +11,7 @@ import { Input } from '@/components/ui/input'
 import { MembersTable } from '@/components/settings/members-table'
 import { InviteDialog } from '@/components/settings/invite-dialog'
 import { PlanCard } from '@/components/settings/plan-card'
+import { PageHeader } from '@/components/app-shell/page-header'
 import {
   changeRoleAction,
   inviteMemberAction,
@@ -44,35 +45,33 @@ export default async function SettingsPage({
 
   return (
     <div className="space-y-6">
-      <div>
-        <h1 className="text-2xl font-semibold tracking-tight text-neutral-900">Settings</h1>
-        <p className="mt-1 text-sm text-neutral-600">
-          Workspace identity, team access, and plan quotas.
-        </p>
-      </div>
+      <PageHeader
+        title="Settings"
+        description="Workspace identity, team access, and plan quotas."
+      />
 
       {query.error === 'slug_taken' ? (
-        <p className="rounded-lg border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-700">
+        <p className="rounded-lg border border-red-500/20 bg-red-500/10 px-3 py-2 text-sm text-red-200">
           That workspace URL is already taken.
         </p>
       ) : null}
       {query.error === 'forbidden' ? (
-        <p className="rounded-lg border border-amber-200 bg-amber-50 px-3 py-2 text-sm text-amber-900">
+        <p className="rounded-lg border border-amber-500/20 bg-amber-500/10 px-3 py-2 text-sm text-amber-200">
           Only owners and admins can change these settings.
         </p>
       ) : null}
       {query.error === 'last_owner' ? (
-        <p className="rounded-lg border border-amber-200 bg-amber-50 px-3 py-2 text-sm text-amber-900">
+        <p className="rounded-lg border border-amber-500/20 bg-amber-500/10 px-3 py-2 text-sm text-amber-200">
           A workspace must keep at least one owner.
         </p>
       ) : null}
       {query.saved ? (
-        <p className="rounded-lg border border-emerald-200 bg-emerald-50 px-3 py-2 text-sm text-emerald-800">
+        <p className="rounded-lg border border-emerald-500/20 bg-emerald-500/10 px-3 py-2 text-sm text-emerald-200">
           Settings saved.
         </p>
       ) : null}
       {query.invited ? (
-        <div className="rounded-lg border border-emerald-200 bg-emerald-50 px-3 py-2 text-sm text-emerald-800">
+        <div className="rounded-lg border border-emerald-500/20 bg-emerald-500/10 px-3 py-2 text-sm text-emerald-200">
           <p>Invitation created. In development, share this link:</p>
           <p className="mt-1 break-all font-mono text-xs">{query.invited}</p>
         </div>
@@ -80,7 +79,7 @@ export default async function SettingsPage({
 
       <div className="grid gap-6 lg:grid-cols-3">
         <div className="space-y-6 lg:col-span-2">
-          <Card>
+          <Card id="profile">
             <CardHeader>
               <CardTitle>Workspace</CardTitle>
             </CardHeader>
@@ -152,12 +151,14 @@ export default async function SettingsPage({
         </div>
 
         <div className="space-y-6">
-          <PlanCard
-            plan={usage.plan}
-            limits={usage.limits}
-            messages={usage.messages}
-            sources={sources}
-          />
+          <div id="plan">
+            <PlanCard
+              plan={usage.plan}
+              limits={usage.limits}
+              messages={usage.messages}
+              sources={sources}
+            />
+          </div>
           <Card>
             <CardHeader>
               <CardTitle>Roles</CardTitle>

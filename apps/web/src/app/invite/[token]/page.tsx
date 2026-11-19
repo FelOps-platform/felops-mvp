@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { getInvitationByToken } from '@felops/core/members'
 import { getSessionUser } from '@/lib/workspace'
 import { Button } from '@/components/ui/button'
+import { Brand } from '@/components/brand'
 import { acceptInvitationAction } from './actions'
 
 export default async function InvitePage({
@@ -18,9 +19,8 @@ export default async function InvitePage({
   return (
     <main className="flex min-h-screen items-center justify-center px-4">
       <div className="w-full max-w-md rounded-xl border border-neutral-200 bg-white p-6">
-        <div className="mb-6 flex items-center gap-2 text-sm font-semibold tracking-wide text-neutral-500">
-          <span className="h-2 w-2 rounded-full bg-[#FA6400]" />
-          FELOPS
+        <div className="mb-6">
+          <Brand className="text-neutral-900" />
         </div>
         <h1 className="text-xl font-semibold text-neutral-900">Join your team on Felops</h1>
         {query.error === 'expired' ? (

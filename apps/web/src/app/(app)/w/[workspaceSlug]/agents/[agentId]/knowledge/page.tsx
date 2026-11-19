@@ -57,18 +57,18 @@ export default async function KnowledgePage({
       <BuilderStepper slug={workspace.slug} agentId={agent.id} active="knowledge" />
 
       {query.error === 'unsafe_url' ? (
-        <p className="rounded-lg border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-700">
+        <p className="rounded-lg border border-red-500/20 bg-red-500/10 px-3 py-2 text-sm text-red-200">
           That URL is not a public http(s) address. Localhost, private IPs, and metadata endpoints
           are blocked.
         </p>
       ) : null}
       {query.error === 'invalid' ? (
-        <p className="rounded-lg border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-700">
+        <p className="rounded-lg border border-red-500/20 bg-red-500/10 px-3 py-2 text-sm text-red-200">
           Check the source details and try again.
         </p>
       ) : null}
       {query.added ? (
-        <p className="rounded-lg border border-emerald-200 bg-emerald-50 px-3 py-2 text-sm text-emerald-800">
+        <p className="rounded-lg border border-emerald-500/20 bg-emerald-500/10 px-3 py-2 text-sm text-emerald-200">
           Source added. Ingestion runs in the background; refresh to see its status.
         </p>
       ) : null}
@@ -77,19 +77,19 @@ export default async function KnowledgePage({
         <Card>
           <CardBody>
             <p className="text-xs uppercase tracking-wide text-neutral-500">Ready sources</p>
-            <p className="mt-1 text-2xl font-semibold">{totals?.ready ?? 0}</p>
+            <p className="mt-2 text-[28px] font-semibold tracking-[-0.03em] text-neutral-900">{totals?.ready ?? 0}</p>
           </CardBody>
         </Card>
         <Card>
           <CardBody>
             <p className="text-xs uppercase tracking-wide text-neutral-500">Retrievable chunks</p>
-            <p className="mt-1 text-2xl font-semibold">{totals?.chunks ?? 0}</p>
+            <p className="mt-2 text-[28px] font-semibold tracking-[-0.03em] text-neutral-900">{totals?.chunks ?? 0}</p>
           </CardBody>
         </Card>
         <Card>
           <CardBody>
             <p className="text-xs uppercase tracking-wide text-neutral-500">Activation rule</p>
-            <p className="mt-1 text-sm text-neutral-700">
+            <p className="mt-2 text-sm leading-6 text-neutral-700">
               At least one ready source with one or more chunks.
             </p>
           </CardBody>
@@ -116,7 +116,7 @@ export default async function KnowledgePage({
         </CardBody>
       </Card>
 
-      <p className="text-xs text-neutral-500">
+      <p className="text-xs text-white/35">
         Limits: 10 MB per file · 25 pages per crawl · same origin only · 10 seconds per request.
       </p>
     </div>

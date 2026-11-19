@@ -4,6 +4,7 @@ import type { ConversationStatus } from '@felops/db/schema'
 import { requireWorkspaceMember } from '@/lib/workspace'
 import { Card, CardBody, CardHeader, CardTitle } from '@/components/ui/card'
 import { ConversationList } from '@/components/conversations/conversation-list'
+import { PageHeader } from '@/components/app-shell/page-header'
 
 const filters: { key: string; label: string }[] = [
   { key: 'all', label: 'All' },
@@ -31,14 +32,12 @@ export default async function ConversationsPage({
 
   return (
     <div className="space-y-6">
-      <div>
-        <h1 className="text-2xl font-semibold tracking-tight text-neutral-900">Conversations</h1>
-        <p className="mt-1 text-sm text-neutral-600">
-          Watch live threads, take over from the AI, and inspect the execution trace.
-        </p>
-      </div>
+      <PageHeader
+        title="Conversations"
+        description="Watch live threads, take over from the AI, and inspect the execution trace."
+      />
 
-      <div className="flex flex-wrap gap-1">
+      <div className="flex flex-wrap gap-1.5">
         {filters.map((filter) => {
           const href =
             filter.key === 'all'
@@ -49,10 +48,10 @@ export default async function ConversationsPage({
             <Link
               key={filter.key}
               href={href}
-              className={`rounded-lg px-3 py-1.5 text-sm font-medium ${
+              className={`rounded-lg px-3 py-1.5 text-sm font-medium transition-colors ${
                 active
-                  ? 'bg-neutral-900 text-white'
-                  : 'border border-neutral-200 bg-white text-neutral-600 hover:bg-neutral-50'
+                  ? 'bg-[#495CCA] text-white'
+                  : 'border border-white/10 bg-white/[0.04] text-white/60 hover:bg-white/[0.08] hover:text-white'
               }`}
             >
               {filter.label}

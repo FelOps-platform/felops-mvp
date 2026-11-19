@@ -8,7 +8,7 @@ export function EmbedSnippet({ snippet }: { snippet: string }) {
   const [copied, setCopied] = useState(false)
   return (
     <div>
-      <pre className="overflow-x-auto rounded-lg border border-neutral-200 bg-neutral-950 p-3 text-xs leading-5 text-neutral-100">
+      <pre className="w-full overflow-x-auto rounded-lg border border-neutral-200 bg-neutral-950 p-3 text-xs leading-5 text-neutral-100">
         <code>{snippet}</code>
       </pre>
       <Button

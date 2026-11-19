@@ -47,12 +47,12 @@ export default async function ConversationDetailPage({
         <div>
           <Link
             href={`/w/${workspace.slug}/conversations`}
-            className="text-xs font-medium text-neutral-500 hover:text-neutral-900"
+            className="text-xs font-medium text-white/40 transition-colors hover:text-white"
           >
             ← Conversations
           </Link>
           <div className="mt-1 flex items-center gap-2">
-            <h1 className="text-xl font-semibold text-neutral-900">
+            <h1 className="text-[24px] font-semibold tracking-[-0.02em] text-white">
               {conversation.visitorId ?? 'Anonymous visitor'}
             </h1>
             <Badge
@@ -83,7 +83,7 @@ export default async function ConversationDetailPage({
             <form action={closeConversationAction}>
               <input type="hidden" name="workspaceSlug" value={workspace.slug} />
               <input type="hidden" name="conversationId" value={conversation.id} />
-              <Button type="submit" size="sm" variant="secondary">
+              <Button type="submit" size="sm" variant="outline-dark">
                 Close
               </Button>
             </form>
