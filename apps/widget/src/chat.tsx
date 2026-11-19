@@ -17,10 +17,18 @@ export function Widget({ apiBase, agentKey }: { apiBase: string; agentKey: strin
   const [busy, setBusy] = useState(false)
   const [error, setError] = useState('')
   const conversationRef = useRef<string | undefined>(undefined)
+  const visitorRef = useRef<string | undefined>(undefined)
 
   useEffect(() => {
     const stored = window.localStorage.getItem(storageKey(agentKey))
     if (stored) conversationRef.current = stored
+    const visitorKey = `felops:visitor:${agentKey}`
+    let visitor = window.localStorage.getItem(visitorKey)
+    if (!visitor) {
+      visitor = `visitor_${Math.random().toString(36).slice(2, 8)}`
+      window.localStorage.setItem(visitorKey, visitor)
+    }
+    visitorRef.current = visitor
     fetch(`${apiBase}/api/v1/widget/${agentKey}`, { credentials: 'omit' })
       .then(async (response) => {
         if (!response.ok) {
@@ -39,6 +47,8 @@ export function Widget({ apiBase, agentKey }: { apiBase: string; agentKey: strin
   }, [apiBase, agentKey])
 
   const rtl = Boolean(config?.language?.includes('ar'))
+  const accent = config?.theme?.accent ?? '#495CCA'
+  const accentStyle = `--fw-accent:${accent}`
 
   async function send(retry = false) {
     const message = input.trim()
@@ -55,8 +65,16 @@ export function Widget({ apiBase, agentKey }: { apiBase: string; agentKey: strin
     try {
       const response = await fetch(`${apiBase}/api/v1/chat`, {
         method: 'POST',
-        headers: { 'content-type': 'application/json', 'x-agent-key': agentKey },
-        body: JSON.stringify({ conversationId: conversationRef.current, message }),
+        headers: {
+          'content-type': 'application/json',
+          'x-agent-key': agentKey,
+          'x-felops-channel': 'widget',
+        },
+        body: JSON.stringify({
+          conversationId: conversationRef.current,
+          visitorId: visitorRef.current,
+          message,
+        }),
       })
       if (!response.ok || !response.body) {
         if (response.status === 404 && conversationRef.current && !retry) {
@@ -138,17 +156,22 @@ export function Widget({ apiBase, agentKey }: { apiBase: string; agentKey: strin
     return (
       <button
         class="fw-launcher"
+        style={accentStyle}
         aria-label={`Open chat with ${config?.name ?? 'support'}`}
         onClick={() => setOpen(true)}
       >
-        <span aria-hidden>💬</span>
         {rtl ? 'كلمنا' : 'Chat with us'}
       </button>
     )
   }
 
   return (
-    <section class={`fw-panel${rtl ? ' fw-rtl' : ''}`} role="dialog" aria-label="Support chat">
+    <section
+      class={`fw-panel${rtl ? ' fw-rtl' : ''}`}
+      style={accentStyle}
+      role="dialog"
+      aria-label="Support chat"
+    >
       <header class="fw-header">
         <span class="fw-avatar" aria-hidden>
           {(config?.name ?? 'S').slice(0, 1).toUpperCase()}

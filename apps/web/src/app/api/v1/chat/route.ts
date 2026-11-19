@@ -21,13 +21,14 @@ export const dynamic = 'force-dynamic'
 
 const bodySchema = z.object({
   conversationId: z.string().uuid().optional(),
+  visitorId: z.string().trim().min(1).max(80).optional(),
   message: z.string().min(1).max(MAX_MESSAGE_LENGTH),
 })
 
 function cors(origin: string | null): Record<string, string> {
   return {
     'access-control-allow-origin': origin ?? '',
-    'access-control-allow-headers': 'x-agent-key, content-type',
+    'access-control-allow-headers': 'x-agent-key, x-felops-channel, content-type',
     'access-control-allow-methods': 'POST, OPTIONS',
     vary: 'Origin',
   }
@@ -48,7 +49,7 @@ export async function OPTIONS(request: Request) {
 
 export async function POST(request: Request) {
   const startedAt = Date.now()
-  const origin = request.headers.get('origin')
+  const origin = request.headers.get('origin') ?? new URL(request.url).origin
   const publicKey = request.headers.get('x-agent-key') ?? ''
 
   const parsed = bodySchema.safeParse(await request.json().catch(() => ({})))
@@ -101,9 +102,15 @@ export async function POST(request: Request) {
       workspaceId: agent.workspaceId,
       agentId: agent.id,
       conversationId: parsed.data.conversationId,
-      visitorId: `visitor_${ip.replace(/[^a-zA-Z0-9]/g, '_')}`,
+      visitorId:
+        parsed.data.visitorId ?? `visitor_${ip.replace(/[^a-zA-Z0-9]/g, '_')}`,
       message: parsed.data.message,
-      channel: origin === loadEnv().APP_URL ? 'hosted' : 'widget',
+      channel:
+        request.headers.get('x-felops-channel') === 'widget'
+          ? 'widget'
+          : origin === loadEnv().APP_URL
+            ? 'hosted'
+            : 'widget',
     })
     logger.info('chat.stream', {
       workspaceId: agent.workspaceId,

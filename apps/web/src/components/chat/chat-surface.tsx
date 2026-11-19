@@ -31,8 +31,18 @@ export function ChatSurface({
   const [error, setError] = useState('')
   const [hydrated, setHydrated] = useState(false)
   const conversationRef = useRef<string | undefined>(undefined)
+  const visitorRef = useRef<string | undefined>(undefined)
 
-  useEffect(() => setHydrated(true), [])
+  useEffect(() => {
+    const key = 'felops:visitor'
+    let visitor = window.localStorage.getItem(key)
+    if (!visitor) {
+      visitor = `visitor_${Math.random().toString(36).slice(2, 8)}`
+      window.localStorage.setItem(key, visitor)
+    }
+    visitorRef.current = visitor
+    setHydrated(true)
+  }, [])
 
   async function send() {
     const message = input.trim()
@@ -53,7 +63,11 @@ export function ChatSurface({
           'content-type': 'application/json',
           'x-agent-key': publicKey,
         },
-        body: JSON.stringify({ conversationId: conversationRef.current, message }),
+        body: JSON.stringify({
+            conversationId: conversationRef.current,
+            visitorId: visitorRef.current,
+            message,
+          }),
       })
       if (!response.ok || !response.body) {
         const data = (await response.json().catch(() => ({}))) as {
@@ -128,10 +142,10 @@ export function ChatSurface({
 
   return (
     <div
-      className="flex h-full min-h-[32rem] flex-col overflow-hidden rounded-2xl border border-neutral-200 bg-white"
+      className="flex h-full min-h-[32rem] flex-col overflow-hidden rounded-lg border border-[#E5E7EB] bg-white"
       data-hydrated={hydrated ? 'true' : 'false'}
     >
-      <div className="flex items-center gap-3 border-b border-neutral-100 px-4 py-3">
+      <div className="flex items-center gap-3 border-b border-[#E5E7EB] px-4 py-3">
         <span
           className="flex h-8 w-8 items-center justify-center rounded-full text-xs font-bold text-white"
           style={{ backgroundColor: accent }}
@@ -154,8 +168,8 @@ export function ChatSurface({
             <div
               className={
                 turn.role === 'user'
-                  ? 'max-w-[85%] rounded-2xl rounded-br-md px-4 py-2.5 text-sm text-white'
-                  : 'max-w-[90%] rounded-2xl rounded-bl-md border border-neutral-200 bg-white px-4 py-2.5 text-sm text-neutral-800'
+                  ? 'max-w-[85%] rounded-lg rounded-br-sm px-4 py-2.5 text-sm text-white'
+                  : 'max-w-[90%] rounded-lg rounded-bl-sm border border-[#E5E7EB] bg-[#F9FAFB] px-4 py-2.5 text-sm text-[#111827]'
               }
               style={turn.role === 'user' ? { backgroundColor: accent } : undefined}
             >
@@ -179,7 +193,7 @@ export function ChatSurface({
         ))}
       </div>
       {error ? <p className="px-4 pb-2 text-xs text-red-600">{error}</p> : null}
-      <div className="border-t border-neutral-100 p-3" dir={rtl ? 'rtl' : 'ltr'}>
+      <div className="border-t border-[#E5E7EB] p-3" dir={rtl ? 'rtl' : 'ltr'}>
         <div className="flex items-end gap-2">
           <textarea
             value={input}
@@ -193,7 +207,7 @@ export function ChatSurface({
             rows={1}
             maxLength={2000}
             placeholder={rtl ? 'اكتب سؤالك…' : 'Type your question…'}
-            className="min-h-10 flex-1 resize-none rounded-lg border border-neutral-300 px-3 py-2 text-sm focus:border-neutral-900 focus:outline-none"
+            className="min-h-10 flex-1 resize-none rounded-md border border-[#D1D5DB] px-3 py-2 text-sm outline-none focus:border-[#495CCA] focus:ring-2 focus:ring-[#495CCA]/15"
           />
           <Button
             onClick={() => void send()}

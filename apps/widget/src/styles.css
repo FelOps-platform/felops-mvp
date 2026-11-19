@@ -13,7 +13,7 @@
   right: 18px;
   bottom: 18px;
   z-index: 2147483000;
-  color: #171717;
+  color: #111827;
 }
 
 .fw-launcher {
@@ -21,18 +21,17 @@
   align-items: center;
   gap: 8px;
   border: 0;
-  border-radius: 999px;
-  background: #fa6400;
+  border-radius: 8px;
+  background: var(--fw-accent, #495cca);
   color: #fff;
   padding: 12px 18px;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
 }
 
 .fw-launcher:hover {
-  background: #e05700;
+  filter: brightness(0.95);
 }
 
 .fw-panel {
@@ -42,10 +41,9 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  border-radius: 16px;
-  border: 1px solid #e5e5e5;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
   background: #fff;
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.2);
 }
 
 .fw-header {
@@ -53,14 +51,14 @@
   align-items: center;
   gap: 10px;
   padding: 12px 14px;
-  border-bottom: 1px solid #efefef;
+  border-bottom: 1px solid #e5e7eb;
 }
 
 .fw-avatar {
   width: 32px;
   height: 32px;
-  border-radius: 999px;
-  background: #fa6400;
+  border-radius: 8px;
+  background: var(--fw-accent, #495cca);
   color: #fff;
   display: flex;
   align-items: center;
@@ -99,7 +97,7 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  background: #fafafa;
+  background: #f7f7f8;
 }
 
 .fw-row {
@@ -112,7 +110,7 @@
 
 .fw-bubble {
   max-width: 86%;
-  border-radius: 14px;
+  border-radius: 10px;
   padding: 9px 12px;
   font-size: 13px;
   line-height: 1.55;
@@ -121,21 +119,21 @@
 
 .fw-bubble-assistant {
   background: #fff;
-  border: 1px solid #e5e5e5;
-  border-bottom-left-radius: 4px;
+  border: 1px solid #e5e7eb;
+  border-bottom-left-radius: 3px;
 }
 
 .fw-bubble-user {
-  background: #171717;
+  background: var(--fw-accent, #495cca);
   color: #fff;
-  border-bottom-right-radius: 4px;
+  border-bottom-right-radius: 3px;
 }
 
 .fw-cites {
   margin: 8px 0 0;
   padding: 8px 0 0;
   list-style: none;
-  border-top: 1px solid #efefef;
+  border-top: 1px solid #e5e7eb;
   font-size: 10px;
   color: #6b7280;
 }
@@ -148,7 +146,7 @@
 }
 
 .fw-composer {
-  border-top: 1px solid #efefef;
+  border-top: 1px solid #e5e7eb;
   padding: 10px;
   display: flex;
   gap: 8px;
@@ -160,21 +158,22 @@
   resize: none;
   min-height: 38px;
   max-height: 110px;
-  border: 1px solid #d4d4d4;
-  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
   padding: 9px 10px;
   font-size: 13px;
   outline: none;
+  background: #fff;
 }
 
 .fw-input:focus {
-  border-color: #fa6400;
+  border-color: var(--fw-accent, #495cca);
 }
 
 .fw-send {
   border: 0;
-  border-radius: 10px;
-  background: #fa6400;
+  border-radius: 6px;
+  background: var(--fw-accent, #495cca);
   color: #fff;
   padding: 9px 14px;
   font-size: 13px;
@@ -212,13 +211,13 @@
 }
 
 .fw-rtl .fw-bubble-assistant {
-  border-bottom-left-radius: 14px;
-  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 3px;
 }
 
 .fw-rtl .fw-bubble-user {
-  border-bottom-right-radius: 14px;
-  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 3px;
 }
 
 @media (max-width: 480px) {

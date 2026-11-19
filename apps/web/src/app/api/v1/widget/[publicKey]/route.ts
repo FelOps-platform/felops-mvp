@@ -25,7 +25,7 @@ export async function GET(
   { params }: { params: Promise<{ publicKey: string }> },
 ) {
   const { publicKey } = await params
-  const origin = request.headers.get('origin')
+  const origin = request.headers.get('origin') ?? new URL(request.url).origin
   try {
     const config = await getPublicAgentConfig({ publicKey, origin })
     return Response.json(config, { headers: cors(origin) })
