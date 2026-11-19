@@ -12,6 +12,7 @@ const badgeVariants = cva(
         warning: 'border-amber-200 bg-amber-50 text-amber-800',
         danger: 'border-red-200 bg-red-50 text-red-700',
         accent: 'border-orange-200 bg-orange-50 text-orange-800',
+        primary: 'border-[#C7D2FE] bg-[#EEF2FF] text-[#3B4FC4]',
       },
     },
     defaultVariants: { tone: 'neutral' },

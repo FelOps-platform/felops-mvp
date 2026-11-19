@@ -30,13 +30,13 @@ export default async function ApprovalsPage({
       />
 
       {query.tested ? (
-        <p className="rounded-lg border border-emerald-500/20 bg-emerald-500/10 px-3 py-2 text-sm text-emerald-200">
+        <p className="rounded-lg border border-[#A7F3D0] bg-[#ECFDF5] px-3 py-2 text-sm text-[#047857]">
           Test run created. Approve it below to execute exactly once.
         </p>
       ) : null}
 
       <section className="space-y-3">
-        <h2 className="text-[10px] font-semibold uppercase tracking-[0.18em] text-white/35">
+        <h2 className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#9CA3AF]">
           Pending · {pending.length}
         </h2>
         {pending.length === 0 ? (
@@ -60,7 +60,7 @@ export default async function ApprovalsPage({
       </section>
 
       <section className="space-y-3">
-        <h2 className="text-[10px] font-semibold uppercase tracking-[0.18em] text-white/35">
+        <h2 className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#9CA3AF]">
           History
         </h2>
         {history.length === 0 ? (

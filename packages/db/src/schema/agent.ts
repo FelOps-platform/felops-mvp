@@ -41,7 +41,7 @@ export const agent = pgTable(
     theme: jsonb('theme')
       .$type<Record<string, string>>()
       .notNull()
-      .default({ accent: '#FA6400' }),
+      .default({ accent: '#495CCA' }),
     createdAt: timestamp('created_at', { withTimezone: true }).notNull().defaultNow(),
     updatedAt: timestamp('updated_at', { withTimezone: true }).notNull().defaultNow(),
   },

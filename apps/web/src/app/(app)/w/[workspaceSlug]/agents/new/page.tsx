@@ -39,7 +39,7 @@ export default async function NewAgentPage({
     <div className="mx-auto max-w-5xl">
       <Link
         href={`/w/${workspaceSlug}/agents`}
-        className="text-xs font-medium text-white/40 transition-colors hover:text-white"
+        className="text-xs font-medium text-[#6B7280] transition-colors hover:text-[#111827]"
       >
         ← Agents
       </Link>
@@ -54,18 +54,18 @@ export default async function NewAgentPage({
                   className={`mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[11px] font-semibold ${
                     active
                       ? 'bg-[#495CCA] text-white'
-                      : 'border border-white/15 text-white/35'
+                      : 'border border-[#D1D5DB] text-[#6B7280]'
                   }`}
                 >
                   {index + 1}
                 </span>
                 <span>
                   <span
-                    className={`block text-sm font-medium ${active ? 'text-white' : 'text-white/45'}`}
+                    className={`block text-sm font-medium ${active ? 'text-[#111827]' : 'text-[#6B7280]'}`}
                   >
                     {step.title}
                   </span>
-                  <span className="mt-0.5 block text-xs leading-5 text-white/30">
+                  <span className="mt-0.5 block text-xs leading-5 text-[#9CA3AF]">
                     {step.description}
                   </span>
                 </span>
@@ -76,23 +76,23 @@ export default async function NewAgentPage({
 
         <div className="min-w-0">
           <div className="mb-6">
-            <h1 className="text-[26px] font-semibold tracking-[-0.025em] text-white sm:text-[30px]">
+            <h1 className="text-[24px] font-semibold tracking-[-0.02em] text-[#111827] sm:text-[28px]">
               Create an agent
             </h1>
-            <p className="mt-1.5 text-sm leading-6 text-white/50">
+            <p className="mt-1.5 text-sm leading-6 text-[#6B7280]">
               Define this Agent&apos;s responsibilities and assign approved Workspace Actions.
             </p>
           </div>
 
           {error ? (
-            <p className="mb-4 rounded-lg border border-red-500/20 bg-red-500/10 px-3 py-2 text-sm text-red-200">
+            <p className="mb-4 rounded-lg border border-[#FECACA] bg-[#FEF2F2] px-3 py-2 text-sm text-[#B91C1C]">
               Check the agent details and try again.
             </p>
           ) : null}
 
           <form
             action={createAgentAction}
-            className="space-y-6 rounded-2xl border border-neutral-200 bg-white p-6 text-neutral-900 sm:p-7"
+            className="space-y-6 rounded-lg border border-neutral-200 bg-white p-6 text-neutral-900 sm:p-7"
           >
             <input type="hidden" name="workspaceSlug" value={workspaceSlug} />
 

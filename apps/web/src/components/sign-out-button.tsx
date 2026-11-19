@@ -16,7 +16,7 @@ export function SignOutButton() {
         router.push('/')
         router.refresh()
       }}
-      className="flex h-8 w-8 items-center justify-center rounded-lg text-white/40 transition-colors hover:bg-white/[0.08] hover:text-white"
+      className="flex h-8 w-8 items-center justify-center rounded-md text-[#9CA3AF] transition-colors hover:bg-[#F3F4F6] hover:text-[#111827]"
     >
       <LogOut className="h-4 w-4" />
     </button>

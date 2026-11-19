@@ -15,26 +15,26 @@ export default async function OnboardingPage({
   const workspaces = await listUserWorkspaces(user.id)
 
   return (
-    <main className="auth-ambient relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-5 py-14 text-white">
-      <div className="relative z-10 w-full max-w-[460px]">
+    <main className="flex min-h-screen flex-col items-center justify-center bg-[#F7F7F8] px-5 py-14">
+      <div className="w-full max-w-[440px]">
         <div className="mb-8 flex justify-center">
           <Brand />
         </div>
-        <div className="rounded-2xl border border-white/[0.12] bg-[#0B0B0F]/90 p-7 shadow-[0_24px_80px_-20px_rgba(0,0,0,0.9)] backdrop-blur sm:p-8">
-          <h1 className="text-[26px] font-semibold tracking-[-0.02em] text-white">
+        <div className="rounded-lg border border-[#E5E7EB] bg-white p-7 sm:p-8">
+          <h1 className="text-[24px] font-semibold tracking-[-0.02em] text-[#111827]">
             Create your workspace
           </h1>
-          <p className="mt-2 text-sm leading-6 text-white/50">
+          <p className="mt-1.5 text-sm leading-6 text-[#6B7280]">
             A workspace holds your agents, knowledge, conversations, and approvals. You can invite
             your team after it exists.
           </p>
           {params.error === 'slug_taken' ? (
-            <p className="mt-4 rounded-lg border border-red-500/20 bg-red-500/10 px-3 py-2 text-sm text-red-200">
+            <p className="mt-4 rounded-md border border-[#FECACA] bg-[#FEF2F2] px-3 py-2 text-sm text-[#B91C1C]">
               That workspace URL is already taken. Try another.
             </p>
           ) : null}
           {params.error === 'invalid' ? (
-            <p className="mt-4 rounded-lg border border-red-500/20 bg-red-500/10 px-3 py-2 text-sm text-red-200">
+            <p className="mt-4 rounded-md border border-[#FECACA] bg-[#FEF2F2] px-3 py-2 text-sm text-[#B91C1C]">
               Check the name and URL. Use lowercase letters, numbers, and dashes.
             </p>
           ) : null}
@@ -45,7 +45,7 @@ export default async function OnboardingPage({
 
         {workspaces.length > 0 ? (
           <div className="mt-8">
-            <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-white/35">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#9CA3AF]">
               Your workspaces
             </p>
             <ul className="mt-3 space-y-2">
@@ -53,10 +53,10 @@ export default async function OnboardingPage({
                 <li key={workspace.id}>
                   <Link
                     href={`/w/${workspace.slug}`}
-                    className="flex items-center justify-between rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3 text-sm transition-colors hover:bg-white/[0.07]"
+                    className="flex items-center justify-between rounded-md border border-[#E5E7EB] bg-white px-4 py-3 text-sm transition-colors hover:bg-[#F9FAFB]"
                   >
-                    <span className="font-medium text-white">{workspace.name}</span>
-                    <span className="text-white/40">/w/{workspace.slug}</span>
+                    <span className="font-medium text-[#111827]">{workspace.name}</span>
+                    <span className="text-[#9CA3AF]">/w/{workspace.slug}</span>
                   </Link>
                 </li>
               ))}

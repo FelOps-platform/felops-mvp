@@ -65,17 +65,17 @@ export default async function AgentOverviewPage({
       <BuilderStepper slug={workspace.slug} agentId={agent.id} active="basics" />
 
       {query.error === 'knowledge' ? (
-        <p className="rounded-lg border border-amber-500/20 bg-amber-500/10 px-3 py-2 text-sm text-amber-200">
+        <p className="rounded-lg border border-[#FDE68A] bg-[#FFFBEB] px-3 py-2 text-sm text-[#92400E]">
           Add at least one ready knowledge source with content before activating.
         </p>
       ) : null}
       {query.saved ? (
-        <p className="rounded-lg border border-emerald-500/20 bg-emerald-500/10 px-3 py-2 text-sm text-emerald-200">
+        <p className="rounded-lg border border-[#A7F3D0] bg-[#ECFDF5] px-3 py-2 text-sm text-[#047857]">
           Basics saved.
         </p>
       ) : null}
       {query.activated ? (
-        <p className="rounded-lg border border-emerald-500/20 bg-emerald-500/10 px-3 py-2 text-sm text-emerald-200">
+        <p className="rounded-lg border border-[#A7F3D0] bg-[#ECFDF5] px-3 py-2 text-sm text-[#047857]">
           Agent is live. The hosted page and widget now answer customers.
         </p>
       ) : null}
@@ -165,7 +165,7 @@ export default async function AgentOverviewPage({
                   href={hostedUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="mt-1 block truncate text-sm text-[#FA6400] hover:underline"
+                  className="mt-1 block truncate text-sm text-[#495CCA] hover:underline"
                 >
                   {hostedUrl}
                 </a>

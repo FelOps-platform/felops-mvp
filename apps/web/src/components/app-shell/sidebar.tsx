@@ -64,7 +64,7 @@ function NavGroup({
   const base = `/w/${slug}`
   return (
     <div className="mb-6">
-      <p className="px-3 pb-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-white/30">
+      <p className="px-3 pb-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-[#9CA3AF]">
         {label}
       </p>
       <div className="space-y-0.5">
@@ -85,16 +85,16 @@ function NavGroup({
               href={href}
               onClick={onNavigate}
               className={cn(
-                'group flex items-center gap-3 rounded-lg px-3 py-2.5 text-[13px] font-medium transition-colors',
+                'group flex items-center gap-3 rounded-md px-3 py-2.5 text-[13px] font-medium transition-colors',
                 active
-                  ? 'bg-[#495CCA] text-white shadow-[0_1px_0_rgba(255,255,255,0.14)_inset]'
-                  : 'text-white/60 hover:bg-white/[0.06] hover:text-white',
+                  ? 'bg-[#495CCA] text-white'
+                  : 'text-[#4B5563] hover:bg-[#F3F4F6] hover:text-[#111827]',
               )}
             >
               <Icon
                 className={cn(
                   'h-[17px] w-[17px] shrink-0 transition-colors',
-                  active ? 'text-white' : 'text-white/40 group-hover:text-white/80',
+                  active ? 'text-white' : 'text-[#9CA3AF] group-hover:text-[#4B5563]',
                 )}
               />
               <span className="truncate">{item.label}</span>
@@ -154,14 +154,14 @@ function SidebarBody({
           onNavigate={onNavigate}
         />
       </nav>
-      <div className="border-t border-white/10 p-3">
-        <div className="flex items-center gap-2.5 rounded-xl px-2 py-2">
-          <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/10 text-[11px] font-semibold text-white">
+      <div className="border-t border-[#E5E7EB] p-3">
+        <div className="flex items-center gap-2.5 rounded-md px-2 py-2">
+          <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#F3F4F6] text-[11px] font-semibold text-[#4B5563]">
             {initials(user.name)}
           </span>
           <span className="min-w-0 flex-1">
-            <span className="block truncate text-[13px] font-medium text-white">{user.name}</span>
-            <span className="block truncate text-[11px] capitalize text-white/40">
+            <span className="block truncate text-[13px] font-medium text-[#111827]">{user.name}</span>
+            <span className="block truncate text-[11px] capitalize text-[#9CA3AF]">
               {role} · {plan}
             </span>
           </span>
@@ -192,7 +192,7 @@ export function AppSidebar({
 
   return (
     <>
-      <aside className="fixed inset-y-0 left-0 z-40 hidden w-[264px] flex-col border-r border-white/[0.08] bg-[#0B0B0F] lg:flex">
+      <aside className="fixed inset-y-0 left-0 z-40 hidden w-[264px] flex-col border-r border-[#E5E7EB] bg-white lg:flex">
         <SidebarBody
           workspace={workspace}
           workspaces={workspaces}
@@ -203,13 +203,13 @@ export function AppSidebar({
         />
       </aside>
 
-      <header className="fixed inset-x-0 top-0 z-40 flex h-16 items-center justify-between border-b border-white/[0.08] bg-[#0B0B0F]/95 px-5 backdrop-blur lg:hidden">
+      <header className="fixed inset-x-0 top-0 z-40 flex h-16 items-center justify-between border-b border-[#E5E7EB] bg-white px-5 lg:hidden">
         <Brand href={`/w/${workspace.slug}`} />
         <button
           type="button"
           aria-label="Open menu"
           onClick={() => setOpen(true)}
-          className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 text-white/70"
+          className="flex h-9 w-9 items-center justify-center rounded-lg border border-[#E5E7EB] text-[#4B5563]"
         >
           <Menu className="h-5 w-5" />
         </button>
@@ -220,15 +220,15 @@ export function AppSidebar({
           <button
             type="button"
             aria-label="Close menu"
-            className="absolute inset-0 bg-black/70 backdrop-blur-sm"
+            className="absolute inset-0 bg-[#111827]/40"
             onClick={() => setOpen(false)}
           />
-          <aside className="absolute inset-y-0 left-0 flex w-[286px] max-w-[86vw] flex-col border-r border-white/10 bg-[#0B0B0F] shadow-2xl">
+          <aside className="absolute inset-y-0 left-0 flex w-[286px] max-w-[86vw] flex-col border-r border-[#E5E7EB] bg-white">
             <button
               type="button"
               aria-label="Close menu"
               onClick={() => setOpen(false)}
-              className="absolute right-3 top-5 z-10 flex h-8 w-8 items-center justify-center rounded-lg text-white/50 hover:bg-white/10 hover:text-white"
+              className="absolute right-3 top-5 z-10 flex h-8 w-8 items-center justify-center rounded-lg text-[#6B7280] hover:bg-[#F3F4F6] hover:text-[#111827]"
             >
               <X className="h-4 w-4" />
             </button>

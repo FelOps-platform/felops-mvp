@@ -66,7 +66,7 @@ export default async function AgentsPage({
                     <TD>
                       <Link
                         href={`/w/${workspace.slug}/agents/${item.id}`}
-                        className="font-medium text-neutral-900 hover:text-[#FA6400]"
+                        className="font-medium text-neutral-900 hover:text-[#495CCA]"
                       >
                         {item.name}
                       </Link>

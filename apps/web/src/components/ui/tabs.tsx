@@ -63,7 +63,7 @@ export function TabsTrigger({
       onClick={() => context.setValue(value)}
       className={cn(
         'rounded-md px-3 py-1.5 text-sm font-medium transition-colors',
-        active ? 'bg-neutral-900 text-white' : 'text-neutral-600 hover:bg-neutral-100',
+        active ? 'bg-[#495CCA] text-white' : 'text-neutral-600 hover:bg-neutral-100',
         className,
       )}
     >

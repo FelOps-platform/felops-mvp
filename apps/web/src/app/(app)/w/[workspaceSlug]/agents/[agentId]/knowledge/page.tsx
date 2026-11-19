@@ -57,18 +57,18 @@ export default async function KnowledgePage({
       <BuilderStepper slug={workspace.slug} agentId={agent.id} active="knowledge" />
 
       {query.error === 'unsafe_url' ? (
-        <p className="rounded-lg border border-red-500/20 bg-red-500/10 px-3 py-2 text-sm text-red-200">
+        <p className="rounded-lg border border-[#FECACA] bg-[#FEF2F2] px-3 py-2 text-sm text-[#B91C1C]">
           That URL is not a public http(s) address. Localhost, private IPs, and metadata endpoints
           are blocked.
         </p>
       ) : null}
       {query.error === 'invalid' ? (
-        <p className="rounded-lg border border-red-500/20 bg-red-500/10 px-3 py-2 text-sm text-red-200">
+        <p className="rounded-lg border border-[#FECACA] bg-[#FEF2F2] px-3 py-2 text-sm text-[#B91C1C]">
           Check the source details and try again.
         </p>
       ) : null}
       {query.added ? (
-        <p className="rounded-lg border border-emerald-500/20 bg-emerald-500/10 px-3 py-2 text-sm text-emerald-200">
+        <p className="rounded-lg border border-[#A7F3D0] bg-[#ECFDF5] px-3 py-2 text-sm text-[#047857]">
           Source added. Ingestion runs in the background; refresh to see its status.
         </p>
       ) : null}
@@ -116,7 +116,7 @@ export default async function KnowledgePage({
         </CardBody>
       </Card>
 
-      <p className="text-xs text-white/35">
+      <p className="text-xs text-[#9CA3AF]">
         Limits: 10 MB per file · 25 pages per crawl · same origin only · 10 seconds per request.
       </p>
     </div>

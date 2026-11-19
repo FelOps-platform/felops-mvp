@@ -116,7 +116,7 @@ export function Playground({
   }
 
   return (
-    <div className="rounded-xl border border-neutral-200 bg-white" data-hydrated={hydrated ? 'true' : 'false'}>
+    <div className="rounded-lg border border-neutral-200 bg-white" data-hydrated={hydrated ? 'true' : 'false'}>
       <div className="flex items-center justify-between border-b border-neutral-100 px-5 py-3">
         <div>
           <h2 className="text-sm font-semibold text-neutral-900">Playground</h2>
@@ -148,8 +148,8 @@ export function Playground({
             <div
               className={
                 turn.role === 'user'
-                  ? 'max-w-[85%] rounded-2xl rounded-br-md bg-neutral-900 px-4 py-2.5 text-sm text-white'
-                  : 'max-w-[90%] rounded-2xl rounded-bl-md border border-neutral-200 bg-white px-4 py-2.5 text-sm text-neutral-800'
+                  ? 'max-w-[85%] rounded-lg rounded-br-sm bg-[#495CCA] px-4 py-2.5 text-sm text-white'
+                  : 'max-w-[90%] rounded-lg rounded-bl-sm border border-[#E5E7EB] bg-[#F9FAFB] px-4 py-2.5 text-sm text-[#111827]'
               }
               dir={/[\u0600-\u06FF]/.test(turn.content) ? 'rtl' : 'ltr'}
             >
@@ -160,7 +160,7 @@ export function Playground({
                 <ul className="mt-3 space-y-1 border-t border-neutral-100 pt-2">
                   {turn.citations.map((citation) => (
                     <li key={citation.index} className="text-[11px] text-neutral-500">
-                      <span className="font-semibold text-[#FA6400]">[{citation.index}]</span>{' '}
+                      <span className="font-semibold text-[#495CCA]">[{citation.index}]</span>{' '}
                       {citation.title}
                     </li>
                   ))}

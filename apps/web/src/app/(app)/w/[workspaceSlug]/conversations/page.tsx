@@ -51,7 +51,7 @@ export default async function ConversationsPage({
               className={`rounded-lg px-3 py-1.5 text-sm font-medium transition-colors ${
                 active
                   ? 'bg-[#495CCA] text-white'
-                  : 'border border-white/10 bg-white/[0.04] text-white/60 hover:bg-white/[0.08] hover:text-white'
+                  : 'border border-[#E5E7EB] bg-white text-[#4B5563] hover:bg-[#F9FAFB] hover:text-[#111827]'
               }`}
             >
               {filter.label}

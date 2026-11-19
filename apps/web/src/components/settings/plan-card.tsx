@@ -8,7 +8,7 @@ function Bar({ used, limit }: { used: number; limit: number }) {
   return (
     <div className="h-2 w-full overflow-hidden rounded-full bg-neutral-100">
       <div
-        className="h-full rounded-full bg-[#FA6400]"
+        className="h-full rounded-full bg-[#495CCA]"
         style={{ width: `${percent}%` }}
         role="progressbar"
         aria-valuenow={used}
@@ -34,7 +34,7 @@ export function PlanCard({
     <Card>
       <CardHeader className="flex items-center justify-between">
         <CardTitle>Plan</CardTitle>
-        <Badge tone="accent">{plan}</Badge>
+        <Badge tone="primary">{plan}</Badge>
       </CardHeader>
       <CardBody className="space-y-4">
         <div>

@@ -23,23 +23,23 @@ export default async function AgentLayout({
         <div>
           <Link
             href={`/w/${workspace.slug}/agents`}
-            className="text-xs font-medium text-white/40 transition-colors hover:text-white"
+            className="text-xs font-medium text-[#6B7280] transition-colors hover:text-[#111827]"
           >
             ← Agents
           </Link>
           <div className="mt-2 flex flex-wrap items-center gap-3">
-            <h1 className="text-[26px] font-semibold tracking-[-0.025em] text-white sm:text-[30px]">
+            <h1 className="text-[24px] font-semibold tracking-[-0.02em] text-[#111827] sm:text-[28px]">
               {agent.name}
             </h1>
             <AgentStatusBadge status={agent.status} />
           </div>
-          <p className="mt-1 text-sm text-white/45">
+          <p className="mt-1 text-sm text-[#6B7280]">
             {workspace.name} · /{agent.slug}
           </p>
         </div>
         <Link
           href={`/w/${workspace.slug}/agents/${agent.id}/playground`}
-          className="inline-flex h-9 items-center justify-center rounded-lg border border-white/15 bg-white/[0.04] px-3.5 text-[13px] font-medium text-white transition-colors hover:bg-white/[0.09]"
+          className="inline-flex h-9 items-center justify-center rounded-md border border-[#D1D5DB] bg-white px-3.5 text-[13px] font-medium text-[#374151] transition-colors hover:bg-[#F9FAFB]"
         >
           Open playground
         </Link>

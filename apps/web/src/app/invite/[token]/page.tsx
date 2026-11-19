@@ -18,7 +18,7 @@ export default async function InvitePage({
 
   return (
     <main className="flex min-h-screen items-center justify-center px-4">
-      <div className="w-full max-w-md rounded-xl border border-neutral-200 bg-white p-6">
+      <div className="w-full max-w-md rounded-lg border border-neutral-200 bg-white p-6">
         <div className="mb-6">
           <Brand className="text-neutral-900" />
         </div>

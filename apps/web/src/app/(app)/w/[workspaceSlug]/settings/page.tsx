@@ -51,27 +51,27 @@ export default async function SettingsPage({
       />
 
       {query.error === 'slug_taken' ? (
-        <p className="rounded-lg border border-red-500/20 bg-red-500/10 px-3 py-2 text-sm text-red-200">
+        <p className="rounded-lg border border-[#FECACA] bg-[#FEF2F2] px-3 py-2 text-sm text-[#B91C1C]">
           That workspace URL is already taken.
         </p>
       ) : null}
       {query.error === 'forbidden' ? (
-        <p className="rounded-lg border border-amber-500/20 bg-amber-500/10 px-3 py-2 text-sm text-amber-200">
+        <p className="rounded-lg border border-[#FDE68A] bg-[#FFFBEB] px-3 py-2 text-sm text-[#92400E]">
           Only owners and admins can change these settings.
         </p>
       ) : null}
       {query.error === 'last_owner' ? (
-        <p className="rounded-lg border border-amber-500/20 bg-amber-500/10 px-3 py-2 text-sm text-amber-200">
+        <p className="rounded-lg border border-[#FDE68A] bg-[#FFFBEB] px-3 py-2 text-sm text-[#92400E]">
           A workspace must keep at least one owner.
         </p>
       ) : null}
       {query.saved ? (
-        <p className="rounded-lg border border-emerald-500/20 bg-emerald-500/10 px-3 py-2 text-sm text-emerald-200">
+        <p className="rounded-lg border border-[#A7F3D0] bg-[#ECFDF5] px-3 py-2 text-sm text-[#047857]">
           Settings saved.
         </p>
       ) : null}
       {query.invited ? (
-        <div className="rounded-lg border border-emerald-500/20 bg-emerald-500/10 px-3 py-2 text-sm text-emerald-200">
+        <div className="rounded-lg border border-[#A7F3D0] bg-[#ECFDF5] px-3 py-2 text-sm text-[#047857]">
           <p>Invitation created. In development, share this link:</p>
           <p className="mt-1 break-all font-mono text-xs">{query.invited}</p>
         </div>

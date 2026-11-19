@@ -26,7 +26,7 @@ export function BuilderStepper({
         const done = steps.findIndex((item) => item.key === active) > index
         return (
           <li key={step.key} className="flex items-center gap-2">
-            {index > 0 ? <span className="text-white/20">→</span> : null}
+            {index > 0 ? <span className="text-[#D1D5DB]">→</span> : null}
             <Link
               href={href}
               className={cn(
@@ -35,7 +35,7 @@ export function BuilderStepper({
                   ? 'bg-[#495CCA] text-white'
                   : done
                     ? 'text-emerald-400'
-                    : 'text-white/45 hover:bg-white/[0.06] hover:text-white',
+                    : 'text-[#6B7280] hover:bg-[#F3F4F6] hover:text-[#111827]',
               )}
             >
               {step.label}

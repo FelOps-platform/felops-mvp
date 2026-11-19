@@ -20,7 +20,7 @@ export function ApprovalDetail({
   showButtons?: boolean
 }) {
   return (
-    <div className="rounded-xl border border-neutral-200 bg-white">
+    <div className="rounded-lg border border-neutral-200 bg-white">
       <div className="flex flex-wrap items-start justify-between gap-3 border-b border-neutral-100 px-5 py-4">
         <div>
           <div className="flex items-center gap-2">
@@ -79,7 +79,7 @@ export function ApprovalDetail({
           {conversationId ? (
             <Link
               href={`/w/${workspaceSlug}/conversations/${conversationId}`}
-              className="text-[#FA6400] hover:underline"
+              className="text-[#495CCA] hover:underline"
             >
               Open conversation
             </Link>

@@ -9,9 +9,6 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/field'
 
-const inputClass =
-  'h-11 border-white/15 bg-white/[0.03] text-white placeholder:text-white/30 focus:border-white/40 focus:ring-white/10'
-
 export default function SignInPage() {
   const router = useRouter()
   const [email, setEmail] = useState('')
@@ -36,14 +33,16 @@ export default function SignInPage() {
 
   return (
     <div>
-      <h1 className="text-[26px] font-semibold tracking-[-0.02em] text-white">Sign in to felops</h1>
-      <p className="mt-2 text-sm leading-6 text-white/50">
-        Access your Workspace and continue your work.
+      <h1 className="text-[24px] font-semibold tracking-[-0.02em] text-[#111827]">
+        Sign in to Felops
+      </h1>
+      <p className="mt-1.5 text-sm leading-6 text-[#6B7280]">
+        Access your workspace and continue your work.
       </p>
 
-      <form onSubmit={onSubmit} className="mt-8 space-y-5">
+      <form onSubmit={onSubmit} className="mt-7 space-y-4">
         <div>
-          <Label htmlFor="email" className="text-[12px] font-medium text-white/75">
+          <Label htmlFor="email" className="text-[12px] font-medium text-[#374151]">
             Email address
           </Label>
           <Input
@@ -55,11 +54,11 @@ export default function SignInPage() {
             value={email}
             onChange={(event) => setEmail(event.target.value)}
             placeholder="you@company.com"
-            className={inputClass}
+            className="h-11"
           />
         </div>
         <div>
-          <Label htmlFor="password" className="text-[12px] font-medium text-white/75">
+          <Label htmlFor="password" className="text-[12px] font-medium text-[#374151]">
             Password
           </Label>
           <div className="relative">
@@ -72,12 +71,12 @@ export default function SignInPage() {
               value={password}
               onChange={(event) => setPassword(event.target.value)}
               placeholder="••••••••••••"
-              className={`${inputClass} pr-16`}
+              className="h-11 pr-16"
             />
             <button
               type="button"
               onClick={() => setShowPassword((value) => !value)}
-              className="absolute inset-y-0 right-0 flex items-center gap-1.5 px-3 text-[11px] font-medium text-white/45 hover:text-white"
+              className="absolute inset-y-0 right-0 flex items-center gap-1.5 px-3 text-[11px] font-medium text-[#6B7280] hover:text-[#111827]"
             >
               {showPassword ? <EyeOff className="h-3.5 w-3.5" /> : <Eye className="h-3.5 w-3.5" />}
               {showPassword ? 'Hide' : 'Show'}
@@ -85,23 +84,19 @@ export default function SignInPage() {
           </div>
         </div>
 
-        {error ? <p className="text-sm text-red-400">{error}</p> : null}
+        {error ? <p className="text-sm text-red-600">{error}</p> : null}
 
-        <Button type="submit" variant="contrast" size="lg" className="w-full" disabled={loading}>
+        <Button type="submit" size="lg" className="w-full" disabled={loading}>
           {loading ? 'Signing in…' : 'Sign in'}
         </Button>
       </form>
 
       <div className="mt-4 flex items-center justify-between text-[12px]">
-        <Link href="/sign-up" className="font-medium text-[#FF8A3F] hover:text-[#FFA46A]">
-          Create Account
+        <Link href="/sign-up" className="font-medium text-[#495CCA] hover:text-[#3B4FC4]">
+          Create account
         </Link>
-        <span className="text-white/30">Secure sign-in</span>
+        <span className="text-[#9CA3AF]">Secure sign-in</span>
       </div>
-
-      <p className="mt-8 text-center text-xs text-white/35">
-        Configurable agents · Policy-aware execution · Verified outcomes
-      </p>
     </div>
   )
 }

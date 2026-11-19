@@ -50,7 +50,7 @@ export function Brand({
     <Link
       href={href}
       aria-label="Felops"
-      className={cn('inline-flex items-center gap-2.5 text-white', className)}
+      className={cn('inline-flex items-center gap-2.5 text-[#111827]', className)}
     >
       <BrandMark className={markClassName} />
       {wordmark ? <BrandWordmark className={wordmarkClassName} /> : null}

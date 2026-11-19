@@ -62,19 +62,19 @@ export default async function ActionsPage({
   return (
     <div className="space-y-6">
       {query.error ? (
-        <p className="rounded-lg border border-red-500/20 bg-red-500/10 px-3 py-2 text-sm text-red-200">
+        <p className="rounded-lg border border-[#FECACA] bg-[#FEF2F2] px-3 py-2 text-sm text-[#B91C1C]">
           {query.error === 'json'
             ? 'The parameters or headers are not valid JSON.'
             : 'Check the action URL and fields. Private addresses are blocked.'}
         </p>
       ) : null}
       {query.created ? (
-        <p className="rounded-lg border border-emerald-500/20 bg-emerald-500/10 px-3 py-2 text-sm text-emerald-200">
+        <p className="rounded-lg border border-[#A7F3D0] bg-[#ECFDF5] px-3 py-2 text-sm text-[#047857]">
           Action created.
         </p>
       ) : null}
       {query.tested ? (
-        <p className="rounded-lg border border-emerald-500/20 bg-emerald-500/10 px-3 py-2 text-sm text-emerald-200">
+        <p className="rounded-lg border border-[#A7F3D0] bg-[#ECFDF5] px-3 py-2 text-sm text-[#047857]">
           Test run created. Review it in Approvals.
         </p>
       ) : null}
@@ -135,7 +135,7 @@ export default async function ActionsPage({
                           <input type="hidden" name="agentId" value={agent.id} />
                           <input type="hidden" name="actionId" value={item.id} />
                           <input type="hidden" name="enabled" value={item.enabled ? 'false' : 'true'} />
-                          <button type="submit" className="text-xs text-[#FA6400] hover:underline">
+                          <button type="submit" className="text-xs text-[#495CCA] hover:underline">
                             {item.enabled ? 'enabled' : 'disabled'}
                           </button>
                         </form>

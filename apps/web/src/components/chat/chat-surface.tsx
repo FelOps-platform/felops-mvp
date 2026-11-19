@@ -12,7 +12,7 @@ export function ChatSurface({
   agentName,
   greeting,
   language,
-  accent = '#FA6400',
+  accent = '#495CCA',
   rtl,
 }: {
   apiBase?: string

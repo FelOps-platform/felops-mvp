@@ -24,7 +24,7 @@ export function ConversationList({
           <Link
             href={`/w/${workspaceSlug}/conversations/${conversation.id}`}
             className={`flex items-start gap-3 px-4 py-3 hover:bg-neutral-50 ${
-              activeId === conversation.id ? 'bg-orange-50/60' : ''
+              activeId === conversation.id ? 'bg-[#EEF2FF]' : ''
             }`}
           >
             <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-neutral-100 text-xs font-semibold text-neutral-600">

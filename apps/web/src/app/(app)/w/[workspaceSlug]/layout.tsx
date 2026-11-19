@@ -14,7 +14,7 @@ export default async function WorkspaceLayout({
   const workspaces = await listUserWorkspaces(user.id)
 
   return (
-    <div className="min-h-screen bg-[#08080A] text-white">
+    <div className="min-h-screen bg-[#F7F7F8] text-[#111827]">
       <AppSidebar
         workspace={workspace}
         workspaces={workspaces}

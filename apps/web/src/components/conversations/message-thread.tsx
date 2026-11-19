@@ -25,10 +25,10 @@ export function MessageThread({ messages }: { messages: Message[] }) {
               <div
                 className={
                   isCustomer
-                    ? 'rounded-2xl rounded-bl-md border border-neutral-200 bg-white px-4 py-2.5 text-sm text-neutral-800'
+                    ? 'rounded-lg rounded-bl-sm border border-neutral-200 bg-white px-4 py-2.5 text-sm text-neutral-800'
                     : message.authorType === 'human'
-                      ? 'rounded-2xl rounded-br-md bg-neutral-900 px-4 py-2.5 text-sm text-white'
-                      : 'rounded-2xl rounded-br-md bg-orange-50 px-4 py-2.5 text-sm text-neutral-900'
+                      ? 'rounded-lg rounded-br-sm bg-[#495CCA] px-4 py-2.5 text-sm text-white'
+                      : 'rounded-lg rounded-br-sm bg-[#F3F4F6] px-4 py-2.5 text-sm text-[#111827]'
                 }
               >
                 <p className="whitespace-pre-wrap leading-6">{message.content}</p>

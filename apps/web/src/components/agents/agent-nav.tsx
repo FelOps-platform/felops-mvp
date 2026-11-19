@@ -20,7 +20,7 @@ export function AgentNav({
     { href: `${base}/playground`, label: 'Playground' },
   ]
   return (
-    <nav className="flex flex-wrap gap-1 border-b border-white/10 pb-2" aria-label="Agent">
+    <nav className="flex flex-wrap gap-1 border-b border-[#E5E7EB] pb-2" aria-label="Agent">
       {items.map((item) => {
         const active = item.href === base ? pathname === base : pathname.startsWith(item.href)
         return (
@@ -31,7 +31,7 @@ export function AgentNav({
               'rounded-lg px-3 py-1.5 text-sm font-medium transition-colors',
               active
                 ? 'bg-[#495CCA] text-white'
-                : 'text-white/55 hover:bg-white/[0.06] hover:text-white',
+                : 'text-[#6B7280] hover:bg-[#F3F4F6] hover:text-[#111827]',
             )}
           >
             {item.label}

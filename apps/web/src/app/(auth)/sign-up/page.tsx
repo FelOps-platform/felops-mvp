@@ -9,9 +9,6 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/field'
 
-const inputClass =
-  'h-11 border-white/15 bg-white/[0.03] text-white placeholder:text-white/30 focus:border-white/40 focus:ring-white/10'
-
 export default function SignUpPage() {
   const router = useRouter()
   const [name, setName] = useState('')
@@ -37,14 +34,16 @@ export default function SignUpPage() {
 
   return (
     <div>
-      <h1 className="text-[26px] font-semibold tracking-[-0.02em] text-white">Create Account</h1>
-      <p className="mt-2 text-sm leading-6 text-white/50">
+      <h1 className="text-[24px] font-semibold tracking-[-0.02em] text-[#111827]">
+        Create account
+      </h1>
+      <p className="mt-1.5 text-sm leading-6 text-[#6B7280]">
         Start configuring your AI agents in minutes.
       </p>
 
-      <form onSubmit={onSubmit} className="mt-8 space-y-5">
+      <form onSubmit={onSubmit} className="mt-7 space-y-4">
         <div>
-          <Label htmlFor="name" className="text-[12px] font-medium text-white/75">
+          <Label htmlFor="name" className="text-[12px] font-medium text-[#374151]">
             Full name
           </Label>
           <Input
@@ -54,11 +53,11 @@ export default function SignUpPage() {
             value={name}
             onChange={(event) => setName(event.target.value)}
             placeholder="Maya Hassan"
-            className={inputClass}
+            className="h-11"
           />
         </div>
         <div>
-          <Label htmlFor="email" className="text-[12px] font-medium text-white/75">
+          <Label htmlFor="email" className="text-[12px] font-medium text-[#374151]">
             Email address
           </Label>
           <Input
@@ -70,11 +69,11 @@ export default function SignUpPage() {
             value={email}
             onChange={(event) => setEmail(event.target.value)}
             placeholder="you@company.com"
-            className={inputClass}
+            className="h-11"
           />
         </div>
         <div>
-          <Label htmlFor="password" className="text-[12px] font-medium text-white/75">
+          <Label htmlFor="password" className="text-[12px] font-medium text-[#374151]">
             Password
           </Label>
           <div className="relative">
@@ -88,12 +87,12 @@ export default function SignUpPage() {
               value={password}
               onChange={(event) => setPassword(event.target.value)}
               placeholder="At least 8 characters"
-              className={`${inputClass} pr-16`}
+              className="h-11 pr-16"
             />
             <button
               type="button"
               onClick={() => setShowPassword((value) => !value)}
-              className="absolute inset-y-0 right-0 flex items-center gap-1.5 px-3 text-[11px] font-medium text-white/45 hover:text-white"
+              className="absolute inset-y-0 right-0 flex items-center gap-1.5 px-3 text-[11px] font-medium text-[#6B7280] hover:text-[#111827]"
             >
               {showPassword ? <EyeOff className="h-3.5 w-3.5" /> : <Eye className="h-3.5 w-3.5" />}
               {showPassword ? 'Hide' : 'Show'}
@@ -101,16 +100,16 @@ export default function SignUpPage() {
           </div>
         </div>
 
-        {error ? <p className="text-sm text-red-400">{error}</p> : null}
+        {error ? <p className="text-sm text-red-600">{error}</p> : null}
 
-        <Button type="submit" variant="contrast" size="lg" className="w-full" disabled={loading}>
-          {loading ? 'Creating account…' : 'Create Account'}
+        <Button type="submit" size="lg" className="w-full" disabled={loading}>
+          {loading ? 'Creating account…' : 'Create account'}
         </Button>
       </form>
 
-      <p className="mt-5 text-center text-[12px] text-white/40">
+      <p className="mt-5 text-center text-[12px] text-[#6B7280]">
         Already have an account?{' '}
-        <Link href="/sign-in" className="font-medium text-[#FF8A3F] hover:text-[#FFA46A]">
+        <Link href="/sign-in" className="font-medium text-[#495CCA] hover:text-[#3B4FC4]">
           Sign in
         </Link>
       </p>

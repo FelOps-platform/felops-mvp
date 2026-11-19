@@ -98,7 +98,7 @@ async function main() {
       language: 'ar+en',
       publicKey: 'pk_demo_cairo_threads',
       allowedOrigins: ['http://localhost:5174', 'http://localhost:3000'],
-      theme: { accent: '#FA6400' },
+      theme: { accent: '#495CCA' },
       instructions: {
         role: 'Answer customer questions about shipping, returns, store hours, and product availability for an Egyptian clothing store.',
         language: 'ar+en',
